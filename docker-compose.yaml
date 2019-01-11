@@ -4,6 +4,6 @@ services:
     image: 921992833788.dkr.ecr.us-west-2.amazonaws.com/db2xmeta:8.23
     ports:
       - "50000:50000"
-	  - "55000:55000"
+      - "55000:55000"
     privileged: true
     hostname: is-xmetadocker
