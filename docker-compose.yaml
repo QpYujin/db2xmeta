@@ -7,3 +7,21 @@ services:
       - "55000:55000"
     privileged: true
     hostname: is-xmetadocker
+    extra_hosts:
+      - "is-servicesdocker:172.18.0.3"
+      
+  is-servicesdocker:
+    image: 921992833788.dkr.ecr.us-west-2.amazonaws.com/services:8.23
+    ports:
+      - "9443:9443"
+      - "9446:9446"
+    privileged: true
+    hostname: is-servicesdocker
+    extra_hosts:
+      - "is-xmetadocker:172.18.0.2"
+    ulimits:
+      nofile:
+        soft: 10240
+        hard: 10240
+    depends_on:
+      - db2xmeta
