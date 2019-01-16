@@ -9,6 +9,12 @@ services:
     hostname: is-xmetadocker
     extra_hosts:
       - "is-servicesdocker:172.18.0.3"
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-region: "us-east-1"
+        awslogs-group: "cloudoptim"
+        awslogs-stream: "db2xmeta"
       
   is-servicesdocker:
     image: 921992833788.dkr.ecr.us-west-2.amazonaws.com/services:8.23
@@ -25,3 +31,9 @@ services:
         hard: 10240
     depends_on:
       - db2xmeta
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-region: "us-east-1"
+        awslogs-group: "cloudoptim"
+        awslogs-stream: "services"
