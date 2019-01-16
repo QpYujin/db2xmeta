@@ -25,6 +25,7 @@ services:
     hostname: is-servicesdocker
     extra_hosts:
       - "is-xmetadocker:172.18.0.2"
+      - "is-en-conductor-0.en-cond:34.236.58.203"
     ulimits:
       nofile:
         soft: 10240
