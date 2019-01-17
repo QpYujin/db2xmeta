@@ -24,12 +24,9 @@ services:
     privileged: true
     hostname: is-servicesdocker
     entrypoint: 
-      - ./wait-for-it/wait-for-it.sh
-      - -t 
-      - 300
-      - db2xmeta:50000  
-      - -- 
-      - /opt/IBM/InformationServer/initScripts/startcontainer.sh'
+      - sh
+      - -c 
+      - './wait-for-it/wait-for-it.sh -t 300 db2xmeta:50000 -- /opt/IBM/InformationServer/initScripts/startcontainer.sh'
     extra_hosts:
       - "is-xmetadocker:172.18.0.2"
       - "is-en-conductor-0.en-cond:34.236.58.203"
