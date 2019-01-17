@@ -17,12 +17,13 @@ services:
         awslogs-stream: "db2xmeta"
       
   is-servicesdocker:
-    image: 921992833788.dkr.ecr.us-west-2.amazonaws.com/services:8.23
+    image: 921992833788.dkr.ecr.us-west-2.amazonaws.com/services:9.1
     ports:
       - "9443:9443"
       - "9446:9446"
     privileged: true
     hostname: is-servicesdocker
+    command: sh -c './wait-for/wait-for db2xmeta:50000 -t 300 -- /opt/IBM/InformationServer/initScripts/startcontainer.sh'
     extra_hosts:
       - "is-xmetadocker:172.18.0.2"
       - "is-en-conductor-0.en-cond:34.236.58.203"
