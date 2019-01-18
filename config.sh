@@ -1,7 +1,7 @@
 #! /bin/bash
 
 INSTANCE_COUNT=1
-INSTANCE_SIZE=t2.medium
+INSTANCE_SIZE=t2.large
 ELASTIC_IP=34.226.111.33
 REGION=us-east-1
 
